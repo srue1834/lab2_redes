@@ -7,6 +7,7 @@ referencias:
 
 import socket
 import pickle
+from Receptor import *
 
 HEADERSIZE = 10
 
@@ -18,11 +19,13 @@ s.connect((socket.gethostname(), 1234))
 
 while True:
 
+    
     full_msg = b''
     new_msg = True
     # acepta el mensaje
     while True:
         msg = s.recv(16)
+
         if new_msg:
             msglen = int(msg[:HEADERSIZE])
             new_msg = False
@@ -33,9 +36,13 @@ while True:
         if len(full_msg)-HEADERSIZE == msglen:
             # print(full_msg[HEADERSIZE:])
 
+            
             d = pickle.loads(full_msg[HEADERSIZE:])
+            re = Receptor(msg, full_msg, d)
             print(d)
 
+            re.hamming_error_detection(d)
+            
             new_msg = True
             full_msg = b''
 

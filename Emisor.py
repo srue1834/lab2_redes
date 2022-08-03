@@ -1,4 +1,4 @@
-from copyreg import pickle
+
 from bitarray import bitarray
 import numpy as np
 from random import randint
