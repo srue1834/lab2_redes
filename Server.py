@@ -23,9 +23,10 @@ while True:
     c_socket, ip_addr = s.accept()
     print("\n ~ conexión establecida ~ \n")
 
-    print("\n----------------------------------------- MENSAJES -----------------------------------------\n")
+    print("\n------------------------- MENSAJES -------------------------\n")
     mensaje = input("Escriba el mensaje que desea enviar: ")
     em = Emisor(mensaje)
+    em.agregar_ruido()
 
     d = {mensaje}
     

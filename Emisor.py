@@ -8,11 +8,10 @@ class Emisor:
 
     def __init__(self, cadena):
         self.cadena = cadena
-        self.cadena_codificada = ''
 
     # capa de aplicacion
     def enviar_cadena(self):
-        self.cadena
+        cadena = self.cadena
 
     # capa de verificacion
     def enviar_cadena_segura(self):
@@ -33,10 +32,8 @@ class Emisor:
             posicion = randint(0, len(cadena_bin)-1)
             cadena_bin = cadena_bin[:posicion] + str(randint(0,1)) + cadena_bin[posicion+1:]
             
-        print(cadena_bin)
+        return cadena_bin
         
-        
-
     # capa de transmision
     def enviar_objeto(self):
         cadena_bin, cadena_bitarr = self.enviar_cadena_segura()
